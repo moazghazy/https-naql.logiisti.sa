@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تفاصيل بطاقة التشغيل</title>
+  <style>
+    body {
+      background-color: #f5f7f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1c1c1c;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      padding: 40px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #0054a6;
+      font-size: 18px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .col {
+      width: 30%;
+      min-width: 250px;
+      margin-bottom: 15px;
+    }
+    .label {
+      color: #6c757d;
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+    .value {
+      font-size: 15px;
+      font-weight: bold;
+      color: #212529;
+    }
+  </style>
+  <script>
+    async function loadData() {
+      const response = await fetch('data.json');
+      const data = await response.json();
+
+      for (const key in data) {
+        const el = document.getElementById(key);
+        if (el) el.textContent = data[key];
+      }
+    }
+    window.onload = loadData;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>تفاصيل بطاقة التشغيل</h2>
+
+    <h2>بيانات المنشأة/الفرد</h2>
+    <div class="row">
+      <div class="col">
+        <div class="label">الاسم</div>
+        <div class="value" id="company_name"></div>
+      </div>
+    </div>
+
+    <h2>معلومات الترخيص الرئيسي</h2>
+    <div class="row">
+      <div class="col">
+        <div class="label">رقم الترخيص</div>
+        <div class="value" id="license_number"></div>
+      </div>
+      <div class="col">
+        <div class="label">نوع الترخيص/النشاط</div>
+        <div class="value" id="license_type"></div>
+      </div>
+      <div class="col">
+        <div class="label">المدينة</div>
+        <div class="value" id="city"></div>
+      </div>
+    </div>
+
+    <h2>بيانات بطاقة التشغيل</h2>
+    <div class="row">
+      <div class="col">
+        <div class="label">رقم البطاقة</div>
+        <div class="value" id="card_number"></div>
+      </div>
+      <div class="col">
+        <div class="label">نوع بطاقة التشغيل</div>
+        <div class="value" id="card_type"></div>
+      </div>
+      <div class="col">
+        <div class="label">تاريخ الإصدار</div>
+        <div class="value" id="issue_date"></div>
+      </div>
+      <div class="col">
+        <div class="label">تاريخ الإنتهاء</div>
+        <div class="value" id="expiry_date"></div>
+      </div>
+      <div class="col">
+        <div class="label">تاريخ التجديد</div>
+        <div class="value" id="renewal_date"></div>
+      </div>
+    </div>
+
+    <h2>معلومات المركبة</h2>
+    <div class="row">
+      <div class="col">
+        <div class="label">نوع السيارة - الماركة و الطراز</div>
+        <div class="value" id="vehicle_type"></div>
+      </div>
+      <div class="col">
+        <div class="label">رقم اللوحة</div>
+        <div class="value" id="plate_number"></div>
+      </div>
+      <div class="col">
+        <div class="label">سنة الصنع</div>
+        <div class="value" id="year"></div>
+      </div>
+      <div class="col">
+        <div class="label">لون المركبة</div>
+        <div class="value" id="color"></div>
+      </div>
+      <div class="col">
+        <div class="label">الرقم التسلسلي</div>
+        <div class="value" id="serial"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
